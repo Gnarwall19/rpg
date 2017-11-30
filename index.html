@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width= , initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>WHAT SHOULD I CALL THIS??</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Bootstrap CSS 3.3.7 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery JS 3.1.0 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Bootstrap JS 3.3.7 -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row-fluid">
+			<div class="col-md-12 text-center" id="selectText">
+				<h2>Choose Your Hero</h2>
+			</div>
+		</div>
+		<!-- CLEARFIX?? -->
+		<div class="clearfix"></div>
+
+		<!-- Player Headers -->
+
+		<div class="row-fluid">
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer text-center">
+				<h2>HERO</h2>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2"></div>
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer text-center">
+				<h2>VILLIAN</h2>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+
+		<!-- Third Row - Attack button -->
+		<div class="row-fluid">
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer text-center" id="userName">
+				<img src="images/placeholder.gif" alt="placeholder">
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 attackButton text-center">
+				<button type="button" ckass="btn btn-danger" id="attackButton">
+					<span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>Attack</button>
+			</div>
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer text-center" id="enemyName">
+				<img src="images/placeholder.gif" alt="placeholder">
+			</div>
+		</div>
+		<div class="clearfix"></div>
+
+
+		<!-- Fourth Row - Stats -->
+		<div class="row-fluid">
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer" id="userStats"></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 attackButton text-center"></div>
+			<div class="col-md-5 col-sm-5 col-xs-5 attackPlayer" id="enemyStats"></div>
+		</div>
+		<div class="clearfix"></div>
+
+
+		<!-- Fifth Row - Images -->
+		<div class="row-fluid">
+			<div class="col-md-3 col-sm-3 col-xs-6 holder">
+				<div class="startPlayer" id="link">
+					<img src="images/link.gif" alt="Link">
+					<h3>Link</h3>
+					<p>Vitality: XXX</p>
+					<!-- Dynamically update stats per Hero -->
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 holder">
+				<div class="startPlayer" id="Isaac">
+					<img src="images/isaac.png" alt="Isaac">
+					<h3>Isaac</h3>
+					<p>Vitality: XXX</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 holder">
+				<div class="startPlayer" id="Kirby">
+					<img src="images/kirby.gif" alt="Kirby">
+					<h3>Kirby</h3>
+					<p>Vitality: XXX</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6 holder">
+				<div class="startPlayer" id="meatboy">
+					<img src="images/meatboy.png" alt="Meat Boy">
+					<h3>Meat Boy</h3>
+					<p>Vitality: XXX</p>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+
+	</div>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+
+</html>
