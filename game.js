@@ -25,7 +25,7 @@ $(document).ready(function () {
 	var points = {
 		hp: 0,
 		attackPower: 0,
-		newPower: 0,
+		powerUp: 0,
 		healthOpponent: 0,
 		counterPower: 0,
 		selectCounter: 0,
@@ -88,8 +88,94 @@ $(document).ready(function () {
 
 	// Attack!
 	function attack(char) {
+		if (points.opponentNow) {
+			// Animate Hero
+			$("#userImage").animate({ left: "+=600px" }, "fast");
+			// PLAY ATTACK SOUND
+			$("#userImage").animate({ left: "-=600px" }, "fast");
+			$("#enemyImage").delay(500).animate({ left: "-=600px" }, "fast");
+			// COUNTER AUDIO
+			$("#enemyImage").animate({ left: "+=600px" }, "fast");
 
+			// Calculate enemy's HP and print to page
+			points.hp = points.hp - points.counterPower;
+			var enemyStats = '<p>HP: ' + points.healthOpponent + '</p><p>Attack Power: ' + points.counterPower + '<p>';
+			$("#enemyStats").html(enemyStats);
+			// Log enemy HP to console
+			console.log('Villian: ' + points.healthOpponent);
+
+			// Calculate user's hp & incremented attack power (powerUp) and print to page
+			points.powerUp = points.powerUp + points.attackPower;
+			points.healthOpponent = points.healthOpponent - points.powerUp;
+			var heroStats = '<p>HP: ' + points.hp + '</p><p>Attack Power: ' + points.powerUp + '</p>';
+			$("#userStats").html(heroStats);
+
+			// Print action
+			var attackTxt = '<h2>' + char.name + ' hit for' + points.powerUp + ' points!\nThe ENEMY countered for ' + points.counterPower + ' points.</h2>'
+			$("#attackTxt").html(attackTxt);
+
+			// Kill enemy
+			if (points.healthOpponent <= 0) {
+				// Increment wins
+				points.winCounter++
+
+				// Win game when user hits 3 wins
+				if (points.winCounter === 3) {
+					// No opponent
+					points.opponentNow = false;
+					// Win Text
+					var attackTxt = '<h2>Congratulations!\nYour enemies have been vanquished!</h2>';
+					$("#attackTxt").html(attackTxt);
+					// Button Text
+					$("#attackButton").text('Play Again?').removeClass("btn-danger").addClass("btn-warning");
+					$("#attackButton").click(function () {
+						startOver();
+					});
+					// Still more enemies
+				} else {
+					// No enemy
+					points.opponentNow = false;
+
+					// Next enemy
+					var attackTxt = '<h2>KO!\nSelect Your Next Opponent!</h2>';
+					$("#attackTxt").html(attackTxt);
+				}
+				// Clear enemy info
+				$("#enemyName").empty();
+				$("#enemyStats").empty();
+
+				return;
+			}
+			// Game Over
+			if (points.hp <= 0) {
+				// Defeat Text
+				var attackTxt = "<h2>You Have Been Defeated...\nGAME OVER" // ADD 'START OVER' LINK
+				$("#attackTxt").html(attackTxt);
+				/*
+				$("#startOverLik").click(function(){
+					startOver();
+				});
+				*/
+				$("#attackButton").text('Play Again?').removeClass("btn-danger").addClass("btn-warning");
+				$("#attackButton").click(function () {
+					startOver();
+				});
+			}
+			// Select an enemy
+		} else {
+			var attackTxt = '<h2>Select an Opponent</h2>';
+			$("#attackTxt").html(attackTxt);
+		}
 	}
+
+	// New Game
+	function startOver() {
+		location.reload();
+	}
+
+	// =============================
+	// BUTTONS!
+	// =============================
 
 
 
