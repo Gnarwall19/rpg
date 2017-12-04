@@ -43,6 +43,9 @@ $(document).ready(function () {
 	// Choose Your Character
 	function userSelect(char) {
 
+		// **TESTING**
+		console.log('selected');
+
 		// Hide selection from menu
 		$(char.divid).hide();
 
@@ -176,7 +179,84 @@ $(document).ready(function () {
 	// =============================
 	// BUTTONS!
 	// =============================
+	$('#isaac').click(function () {
+		if (points.selectCounter === 0) {
+			userSelect(isaac);
+
+			// **TESTING**
+			console.log("you clicked isaac!");
+		} else {
+
+			if (points.opponentNow) {
+				var attackTxt = '<h2>YOU MUST DEFEAT THE CURRENT ENEMY</h2>';
+				$("#attackTxt").html(attackTxt);
+			} else {
+				opponentSelect(isaac);
+			}
+		}
+	});
 
 
+
+	$('#kirby').click(function () {
+		if (points.selectCounter === 0) {
+			userSelect(kirby);
+
+			// **TESTING**
+			console.log("you clicked kirby!");
+		} else {
+
+			if (points.opponentNow) {
+				var attackTxt = '<h2>YOU MUST DEFEAT THE CURRENT ENEMY</h2>';
+				$("#attackTxt").html(attackTxt);
+			} else {
+				opponentSelect(kirby);
+			}
+		}
+	});
+
+
+	$('#link').click(function () {
+		if (points.selectCounter === 0) {
+			userSelect(link);
+
+			// **TESTING**
+			console.log("you clicked link!");
+		} else {
+
+			if (points.opponentNow) {
+				var attackTxt = '<h2>YOU MUST DEFEAT THE CURRENT ENEMY</h2>';
+				$("#attackTxt").html(attackTxt);
+			} else {
+				opponentSelect(link);
+			}
+		}
+	});
+
+
+	$('#meatboy').click(function () {
+		if (points.selectCounter === 0) {
+			userSelect(meatBoy);
+
+			// **TESTING**
+			console.log("you clicked meatboy!");
+		} else {
+
+			if (points.opponentNow) {
+				var attackTxt = '<h2>YOU MUST DEFEAT THE CURRENT ENEMY</h2>';
+				$("#attackTxt").html(attackTxt);
+			} else {
+				opponentSelect(meatBoy);
+			}
+		}
+	});
+
+
+
+
+
+
+	// **TESTING**
+	console.log(points.selectCounter);
 
 })
