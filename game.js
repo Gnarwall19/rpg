@@ -10,16 +10,16 @@ $(document).ready(function () {
 	};
 
 	// ISAAC
-	var isaac = new Hero("Isaac", "images/isaac.png", "#isaac", 10, 5, 3);
+	var isaac = new Hero("Isaac", "images/isaac.png", "#isaac", 100, 5, 3);
 
 	// KIRBY
-	var kirby = new Hero("Kirby", "images/kirby.gif", "#kirby", 10, 5, 3);
+	var kirby = new Hero("Kirby", "images/kirby.gif", "#kirby", 100, 5, 3);
 
 	// LINK
-	var link = new Hero("Link", "images/link.gif", "#link", 10, 5, 3);
+	var link = new Hero("Link", "images/link.gif", "#link", 100, 5, 3);
 
 	// SUPER MEAT BOY
-	var meatBoy = new Hero("Super Meat Boy", "images/meatboy.png", "#meatboy", 10, 5, 3);
+	var meatBoy = new Hero("Super Meat Boy", "images/meatboy.png", "#meatboy", 100, 5, 3);
 
 	// Create universal variables in an object
 	var points = {
@@ -75,7 +75,7 @@ $(document).ready(function () {
 		points.counterPower = char.attack;
 
 		// Dymanically update HTML
-		var enemyName = '<img id="enemyImage: src="' + char.image + '" alt="' + char.name + '"> <h3>' + char.name + '</h3>';
+		var enemyName = '<img id="enemyImage" src="' + char.image + '" alt="' + char.name + '"> <h3>' + char.name + '</h3>';
 		$("#enemyName").html(enemyName);
 		var enemyStats = '<p>HP: ' + points.healthOpponent + '</p> <p>Attack Power: ' + points.counterPower + '</p>';
 		$("#enemyStats").html(enemyStats);
@@ -91,6 +91,7 @@ $(document).ready(function () {
 
 	// Attack!
 	function attack(char) {
+		console.log(points.opponentNow);
 		if (points.opponentNow) {
 			// Animate Hero
 			$("#userImage").animate({ left: "+=600px" }, "fast");
@@ -114,7 +115,7 @@ $(document).ready(function () {
 			$("#userStats").html(heroStats);
 
 			// Print action
-			var attackTxt = '<h2>' + char.name + ' hit for' + points.powerUp + ' points!\nThe ENEMY countered for ' + points.counterPower + ' points.</h2>'
+			var attackTxt = '<h2>' + name + ' hit for ' + points.powerUp + ' points!\nThe ENEMY countered for ' + points.counterPower + ' points.</h2>'
 			$("#attackTxt").html(attackTxt);
 
 			// Kill enemy
@@ -251,6 +252,21 @@ $(document).ready(function () {
 		}
 	});
 
+
+	$("#attackButton").click(function () {
+
+		if (points.winCounter < 3) {
+			if (points.selectCounter < 1) {
+				var attackTxt = "<h2>Select Your Hero</h2>";
+				$("#attackTxt").html(attackTxt);
+			} else if (points.selectCounter === 1) {
+				var attackTxt = "<h2>Choose Your Enemy</h2>";
+				$("#attackTxt").html(attackTxt);
+			} else {
+				attack();
+			}
+		}
+	})
 
 
 

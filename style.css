@@ -3,3 +3,7 @@ img {
     width: 75px;
 
 }
+
+#userImage, #enemyImage {
+    position: relative;
+}
